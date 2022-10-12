@@ -18,6 +18,7 @@ namespace NZWalks.API.Repository
             region.Id = Guid.NewGuid();
             await nZWalksDbContext.Regions.AddAsync(region);
             await nZWalksDbContext.SaveChangesAsync();
+
             return region;
         }
 
@@ -36,17 +37,15 @@ namespace NZWalks.API.Repository
 
             return region;
         }
-
         public async Task<IEnumerable<Region>> GetAllAsync()
         {
             return await nZWalksDbContext.Regions.ToListAsync();
         }
+
         //get the single region
         public async Task<Region> GetAsync(Guid id)
         {
             return await nZWalksDbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
-
-
         }
 
         public async Task<Region> UpdateAsync(Guid id, Region region)
