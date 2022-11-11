@@ -29,7 +29,7 @@ namespace NZWalks.API.Repository
 
             user.Roles.ForEach((role) =>
             {
-              claims.Add(new Claim(ClaimTypes.Role,role));
+                claims.Add(new Claim(ClaimTypes.Role, role));
             });
 
             //create a token
